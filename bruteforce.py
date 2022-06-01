@@ -1,15 +1,17 @@
 import csv
+import time
 from itertools import combinations
 from tqdm import tqdm
 
-
+start_time = time.time()
 MAX_MONEY = 500
 
 def run():
-    shares_list = get_shares_from_csv('test.csv')
+    shares_list = get_shares_from_csv('bruteforce_test.csv')
     best_combo = shares_combos(shares_list)
     display_results(best_combo)
     results_to_csv(best_combo)
+    print("Temps d'execution : %s seconds" % (time.time() - start_time))
 
 def get_shares_from_csv(csv_file):
 
